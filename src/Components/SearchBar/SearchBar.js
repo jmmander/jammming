@@ -9,3 +9,6 @@ render() {
 </div>
 }
 }
+
+
+export default SearchBar
