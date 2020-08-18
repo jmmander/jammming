@@ -17,6 +17,7 @@ this.state = {
 }
 this.addTrack = this.addTrack.bind(this);
 this.removeTrack = this.removeTrack.bind(this);
+this.updatePlaylistName = this.updatePlaylistName.bind(this);
 } 
 
 addTrack(track) {
@@ -29,13 +30,16 @@ addTrack(track) {
 }
 
 removeTrack(track){
-  for (i=0, i < this.state.playlistTracks.length, i++) {
+  for (var i=0; i < this.state.playlistTracks.length; i++) {
    if (this.state.playlistTracks[i].id === track.id) {
       var updatedPlaylist = this.state.playlistTracks.splice(i, 1); 
       this.setState({playlistTracks: updatedPlaylist})
-      
    }
   }
+}
+
+updatePlaylistName(name) {
+  this.setState({playlistName: name})
 }
 
 render(){
@@ -46,7 +50,7 @@ render(){
     <SearchBar />
     <div className="App-playlist">
       <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-      <Playlist playlistName = {this.state.playlistName} playlistTracks = {this.state.playlistTracks} onRemove={this.removeTrack}/>
+      <Playlist onNameChange={this.updatePlaylistName} playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack}/>
     </div>
   </div>
 </div>
