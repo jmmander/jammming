@@ -4,6 +4,7 @@ import Track from '../Track/Track';
 import SearchResults from '../SearchResults/SearchResults'
 import SearchBar from '../SearchBar/SearchBar'
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify'
 
 
 class App extends React.Component {	
@@ -46,11 +47,13 @@ updatePlaylistName(name) {
 
 savePlaylist() {
   let trackURIs = this.state.playlistTracks.map(track => {return track.uri});
-  return trackURIs
+  Spotify.savePlaylist(this.state.playlistName, trackURIs);
+  updatedPlaylist("new playlist");
+  this.setState({playlistTracks: []}); 
 }
 
 search(searchTerm) {
-  console.log(searchTerm);
+  Spotify.search(searchTerm);
 }
 
 render(){

@@ -1,6 +1,6 @@
 let userAccessToken;
 let url = window.location.search;
-const urlParams = new URLSearchParams(url)
+const urlParams = new URLSearchParams(url);
 const clientId = "cbd13bb8d86841999183d60f334c1341";
 const redirectId= 'http://localhost:3000/';
 
@@ -59,13 +59,13 @@ const Spotify = {
                                 return jsonRepsonse.id;
                             }
                         }
-                    )
+                    );
             
             const playlistEndpoint = `https://api.spotify.com/v1/users/${userId}/playlists`;
             const playlistHeaders = {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                    Content-Type: 'application/json'
+                headers: 
+                {Authorization: `Bearer ${accessToken}`, 
+                'Content-Type': 'application/json'
                         },
                 body: {name: name}
                 }
@@ -81,13 +81,13 @@ const Spotify = {
             const addTrackHeaders = {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
-                    Content-Type: 'application/json'
+                    'Content-Type': 'application/json'
                         },
                 body: {uris}
 
                                     }
                 }
-                return "needs varibles"
+                return "needs varibles";
             
                 }
             
@@ -97,4 +97,4 @@ const Spotify = {
 
 
    
-export default Spotify
+export default Spotify;
