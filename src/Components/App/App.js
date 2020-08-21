@@ -37,13 +37,10 @@ addTrack(track) {
 
 removeTrack(track){
   let tracks = this.state.playlistTracks;
-  for (var i=0; i < this.state.playlistTracks.length; i++) {
-   if (this.state.playlistTracks[i].id === track.id) {
-      var updatedPlaylist = tracks.splice(i, 1); 
-      this.setState({playlistTracks: updatedPlaylist})
-   }
-  }
+  tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+  this.setState({playlistTracks: tracks});
 }
+
 
 updatePlaylistName(name) {
   this.setState({playlistName: name})
