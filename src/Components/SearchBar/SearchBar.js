@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './SearchBar.css'
 
@@ -19,7 +20,7 @@ search() {
 }
 
 handleTermChange(e) {
-  this.setState({state: e.target.value})
+  this.setState({searchTerm: e.target.value})
 }
 
 render() {
