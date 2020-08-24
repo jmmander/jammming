@@ -29,7 +29,7 @@ class SearchBar extends React.Component {
   }
 
   handleClick(event) {
-    return;
+    event.currentTarget.select();
   }
 
   render() {
