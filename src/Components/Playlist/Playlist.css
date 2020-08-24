@@ -50,3 +50,7 @@
       width: 90%;
     }
   }
+
+  input:focus::placeholder {
+    color: transparent;
+  }
